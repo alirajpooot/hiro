@@ -1,344 +1,415 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="@yield('description')">
-    <meta name="keywords" content="@yield('keywords')">
-	<!--title-->
-<title>@yield('title',"Move Klang")</title>
-	
-	<!--CSS-->
-    <link href="{{ asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ asset('public/assets/css/font-awesome.min.css')}}" rel="stylesheet">
-	<link href="{{ asset('public/assets/css/magnific-popup.css')}}" rel="stylesheet">
-	<link href="{{ asset('public/assets/css/owl.carousel.css')}}" rel="stylesheet">
-	<link href="{{ asset('public/assets/css/subscribe-better.css')}}" rel="stylesheet">
-	<link href="{{ asset('public/assets/css/main.css')}}" rel="stylesheet">
-	<link id="preset" rel="stylesheet" type="text/css" href="{{ asset('public/assets/css/presets/preset2.css')}}">
-	<link href="{{ asset('public/assets/css/responsive.css')}}" rel="stylesheet">		
-	@stack('css')
-	<!--Google Fonts-->
-	<link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet' type='text/css'>
-	
-    <!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
-    <![endif]-->       
-    
-</head><!--/head-->
+
+<!-- Basic Page Needs
+================================================== -->
+<title>Hireo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="{{ asset('public/assets/css/style.css')}}">
+<link rel="stylesheet" href="{{ asset('public/assets/css/colors/blue.css')}}">
+<style>
+	.header-notifications-trigger, .header-notifications-trigger a {
+    top: 50%;
+}
+</style>
+@stack('css')
+</head>
 <body>
-	<div id="main-wrapper" class="homepage-two fixed-nav">
-		<div class="topbar">
-			<div class="container">
-				<div id="date-time"></div>
-				<div id="topbar-right">
-					<div class="dropdown language-dropdown">						
-						<a data-toggle="dropdown" href="#"><span class="change-text">En</span> <i class="fa fa-angle-down"></i></a>
-						<ul class="dropdown-menu language-change">
-							<li><a href="#">EN</a></li>
-							<li><a href="#">FR</a></li>
-							<li><a href="#">GR</a></li>
-							<li><a href="#">ES</a></li>
-						</ul>								
-					</div>				
-					<div id="weather"></div>
-					<div class="searchNlogin">
-						<ul>
-							<li class="search-icon"><i class="fa fa-search"></i></li>
-							<li class="dropdown user-panel"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
-								<div class="dropdown-menu top-user-section">
-									<div class="top-user-form">
-										<form id="top-login" role="form">
-											<div class="input-group" id="top-login-username">
-												<span class="input-group-addon"><img src="{{ asset('public/assets/images/others/user-icon.png')}}" alt="" /></span>
-												<input type="text" class="form-control" placeholder="Username" required="">
-											</div>
-											<div class="input-group" id="top-login-password">
-												<span class="input-group-addon"><img src="{{ asset('public/assets/images/others/password-icon.png')}}" alt="" /></span>
-												<input type="password" class="form-control" placeholder="Password" required="">
-											</div>
-											<div>
-												<p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
-												<button class="btn btn-danger" type="submit">Login</button>
-											</div>
-										</form>
-									</div>
-									<div class="create-account">
-										<a href="#">Create a New Account</a>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header Container
+================================================== -->
+<header id="header-container" class="fullwidth">
+
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+			
+			<!-- Left Side Content -->
+			<div class="left-side">
+				
+				<!-- Logo -->
+				<div id="logo">
+					<a href="index.html"><img src="{{asset('public/assets/images/logo.png')}}" alt=""></a>
+				</div>
+
+				<!-- Main Navigation -->
+				<nav id="navigation">
+					<ul id="responsive">
+
+						<li><a href="#" class="current">Home</a>
+							<ul class="dropdown-nav">
+								<li><a href="index.html">Home 1</a></li>
+								<li><a href="index-2.html">Home 2</a></li>
+								<li><a href="index-3.html">Home 3</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">Find Work</a>
+							<ul class="dropdown-nav">
+								<li><a href="#">Browse Jobs</a>
+									<ul class="dropdown-nav">
+										<li><a href="jobs-list-layout-full-page-map.html">Full Page List + Map</a></li>
+										<li><a href="jobs-grid-layout-full-page-map.html">Full Page Grid + Map</a></li>
+										<li><a href="jobs-grid-layout-full-page.html">Full Page Grid</a></li>
+										<li><a href="jobs-list-layout-1.html">List Layout 1</a></li>
+										<li><a href="jobs-list-layout-2.html">List Layout 2</a></li>
+										<li><a href="jobs-grid-layout.html">Grid Layout</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Browse Tasks</a>
+									<ul class="dropdown-nav">
+										<li><a href="tasks-list-layout-1.html">List Layout 1</a></li>
+										<li><a href="tasks-list-layout-2.html">List Layout 2</a></li>
+										<li><a href="tasks-grid-layout.html">Grid Layout</a></li>
+										<li><a href="tasks-grid-layout-full-page.html">Full Page Grid</a></li>
+									</ul>
+								</li>
+								<li><a href="browse-companies.html">Browse Companies</a></li>
+								<li><a href="single-job-page.html">Job Page</a></li>
+								<li><a href="single-task-page.html">Task Page</a></li>
+								<li><a href="single-company-profile.html">Company Profile</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">For Employers</a>
+							<ul class="dropdown-nav">
+								<li><a href="#">Find a Freelancer</a>
+									<ul class="dropdown-nav">
+										<li><a href="freelancers-grid-layout-full-page.html">Full Page Grid</a></li>
+										<li><a href="freelancers-grid-layout.html">Grid Layout</a></li>
+										<li><a href="freelancers-list-layout-1.html">List Layout 1</a></li>
+										<li><a href="freelancers-list-layout-2.html">List Layout 2</a></li>
+									</ul>
+								</li>
+								<li><a href="single-freelancer-profile.html">Freelancer Profile</a></li>
+								<li><a href="dashboard-post-a-job.html">Post a Job</a></li>
+								<li><a href="dashboard-post-a-task.html">Post a Task</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">Dashboard</a>
+							<ul class="dropdown-nav">
+								<li><a href="dashboard.html">Dashboard</a></li>
+								<li><a href="dashboard-messages.html">Messages</a></li>
+								<li><a href="dashboard-bookmarks.html">Bookmarks</a></li>
+								<li><a href="dashboard-reviews.html">Reviews</a></li>
+								<li><a href="dashboard-manage-jobs.html">Jobs</a>
+									<ul class="dropdown-nav">
+										<li><a href="dashboard-manage-jobs.html">Manage Jobs</a></li>
+										<li><a href="dashboard-manage-candidates.html">Manage Candidates</a></li>
+										<li><a href="dashboard-post-a-job.html">Post a Job</a></li>
+									</ul>
+								</li>
+								<li><a href="dashboard-manage-tasks.html">Tasks</a>
+									<ul class="dropdown-nav">
+										<li><a href="dashboard-manage-tasks.html">Manage Tasks</a></li>
+										<li><a href="dashboard-manage-bidders.html">Manage Bidders</a></li>
+										<li><a href="dashboard-my-active-bids.html">My Active Bids</a></li>
+										<li><a href="dashboard-post-a-task.html">Post a Task</a></li>
+									</ul>
+								</li>
+								<li><a href="dashboard-settings.html">Settings</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">Pages</a>
+							<ul class="dropdown-nav">
+								<li><a href="pages-blog.html">Blog</a></li>
+								<li><a href="pages-pricing-plans.html">Pricing Plans</a></li>
+								<li><a href="pages-checkout-page.html">Checkout Page</a></li>
+								<li><a href="pages-invoice-template.html">Invoice Template</a></li>
+								<li><a href="pages-user-interface-elements.html">User Interface Elements</a></li>
+								<li><a href="pages-icons-cheatsheet.html">Icons Cheatsheet</a></li>
+								<li><a href="pages-login.html">Login & Register</a></li>
+								<li><a href="pages-404.html">404 Page</a></li>
+								<li><a href="pages-contact.html">Contact</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+				<!-- Main Navigation / End -->
+				
+			</div>
+			<!-- Left Side Content / End -->
+
+
+			<!-- Right Side Content / End -->
+			<div class="right-side">
+
+				<!--  User Notifications -->
+				@if(!Auth::check())
+				<div class="header-widget hide-on-mobile">
+						<div class="header-notifications-trigger">
+							<a href="{{route('login')}}">Login</a>
+						</div>
+				</div>
+				@endif
+				<!--  User Notifications / End -->
+
+				<!-- User Menu -->
+				<div class="header-widget hide-on-mobile">
+
+					<!-- Messages -->
+					@if(!Auth::check())
+						<div class="header-notifications-trigger">
+							<a href="{{route('register')}}">Register</a>
+						</div>
+					@else
+					<div class="header-notifications user-menu">
+						<div class="header-notifications-trigger">
+							<a href="#"><div class="user-avatar status-online"><img src="{{asset('public/assets/images/user-avatar-small-01.jpg')}}" alt=""></div></a>
+						</div>
+
+						<!-- Dropdown -->
+						<div class="header-notifications-dropdown">
+
+							<!-- User Status -->
+							<div class="user-status">
+
+								<!-- User Name / Avatar -->
+								<div class="user-details">
+									<div class="user-avatar status-online"><img src="images/user-avatar-small-01.jpg" alt=""></div>
+									<div class="user-name">
+										Tom Smith <span>Freelancer</span>
 									</div>
 								</div>
-							</li>
+								
+								<!-- User Status Switcher -->
+								<div class="status-switch" id="snackbar-user-status">
+									<label class="user-online current-status">Online</label>
+									<label class="user-invisible">Invisible</label>
+									<!-- Status Indicator -->
+									<span class="status-indicator" aria-hidden="true"></span>
+								</div>	
+						</div>
+						
+						<ul class="user-menu-small-nav">
+							<li><a href="dashboard.html"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
+							<li><a href="{{route('home')}}"><i class="icon-material-outline-settings"></i> Settings</a></li>
+							<li><a href="{{route('logout')}}"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
 						</ul>
-						<div class="search">
-							<form role="form">
-								<input type="text" class="search-form" autocomplete="off" placeholder="Type service, location, category etc">
-							</form>
-						</div> <!--/.search--> 
-					</div><!-- searchNlogin -->
+
+						</div>
+					</div>
+					@endif
+
+				</div>
+				<!-- User Menu / End -->
+
+				<!-- Mobile Navigation Button -->
+				<span class="mmenu-trigger">
+					<button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</span>
+
+			</div>
+			<!-- Right Side Content / End -->
+
+		</div>
+	</div>
+	<!-- Header / End -->
+
+</header>
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+
+@yield('content')
+
+
+<!-- Footer
+================================================== -->
+<div id="footer">
+	
+	<!-- Footer Top Section -->
+	<div class="footer-top-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+
+					<!-- Footer Rows Container -->
+					<div class="footer-rows-container">
+						
+						<!-- Left Side -->
+						<div class="footer-rows-left">
+							<div class="footer-row">
+								<div class="footer-row-inner footer-logo">
+									<img src="images/logo2.png" alt="">
+								</div>
+							</div>
+						</div>
+						
+						<!-- Right Side -->
+						<div class="footer-rows-right">
+
+							<!-- Social Icons -->
+							<div class="footer-row">
+								<div class="footer-row-inner">
+									<ul class="footer-social-links">
+										<li>
+											<a href="#" title="Facebook" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-facebook-f"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#" title="Twitter" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-twitter"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#" title="Google Plus" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-google-plus-g"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#" title="LinkedIn" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-linkedin-in"></i>
+											</a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							
+							<!-- Language Switcher -->
+							<div class="footer-row">
+								<div class="footer-row-inner">
+									<select class="selectpicker language-switcher" data-selected-text-format="count" data-size="5">
+										<option selected>English</option>
+										<option>Français</option>
+										<option>Español</option>
+										<option>Deutsch</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- Footer Rows Container / End -->
 				</div>
 			</div>
 		</div>
-		<div id="navigation">
-			<div class="navbar" role="banner">
-				<div class="container">
-					<div class="top-add">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							
-							<a class="navbar-brand" href="index.html">
-								<img class="main-logo img-responsive" src="{{ asset('public/assets/images/presets/preset1/logo.png')}}" alt="logo">
-							</a>
-						</div> 
-						<div class="navbar-right">
-                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hidden-xs">
-                            </div>
-                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hidden-xs">							
-                            </div>
-                        </div>
-                        
-					</div>
-				</div> 
-				<div id="menubar" class="container">
-					<div class="container">
-						<nav id="mainmenu" class="navbar-left collapse navbar-collapse"> 
-							<ul class="nav navbar-nav">                       
-							<li><a href="javascript:void(0);">Home</a></li>
-							<li><a href="{{route('companies.alphabet')}}" >Companies</a></li>
-							<li><a href="javascript:void(0);" >Location</a></li>
-                            <li><a href="javascript:void(0);">New Promotions</a></li>
-                            <li><a href="javascript:void(0);">Exhibition</a></li>
-                            <li><a href="javascript:void(0);">Voucher</a></li>
-                            <li><a href="javascript:void(0);">Chat Room</a></li>
-							
-						</ul> 									
-						</nav>					
-					</div>
-				</div><!--/#navigation--> 
-			</div><!--/#navigation--> 
-		</div><!--/#navigation--> 
+	</div>
+	<!-- Footer Top Section / End -->
 
-	
+	<!-- Footer Middle Section -->
+	<div class="footer-middle-section">
 		<div class="container">
 			<div class="row">
-			@yield('content')
-			</div>
-		</div><!--/.container-->
-		
-		<div id="twitter-feed">
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-sm-8 col-sm-offset-2">
-						<div class="twitter-feeds">
-							<div class="twitter-feed">
-								<img class="img-responsive" src="images/others/twitter.png" alt="" />
-								<h2>#Newspress</h2>
-								<p>Confusing <a href="#">#design</a> terms: what's the difference between quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">#UX, #UI and #IA? http://buff.ly/1KdjpEi  </a> </p>
-							</div>
-							<div class="twitter-feed">
-								<img class="img-responsive" src="images/others/twitter.png" alt="" />
-								<h2>#ThemeRegion</h2>
-								<p>Confusing <a href="#">#design</a> terms: what's the difference between quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">#UX, #UI and #IA? http://buff.ly/1KdjpEi  </a> </p>
-							</div>
-							<div class="twitter-feed">
-								<img class="img-responsive" src="images/others/twitter.png" alt="" />
-								<h2>#Doors</h2>
-								<p>Confusing <a href="#">#design</a> terms: what's the difference between quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <a href="#">#UX, #UI and #IA? http://buff.ly/1KdjpEi  </a> </p>
-							</div>
-						</div>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>For Candidates</h3>
+						<ul>
+							<li><a href="#"><span>Browse Jobs</span></a></li>
+							<li><a href="#"><span>Add Resume</span></a></li>
+							<li><a href="#"><span>Job Alerts</span></a></li>
+							<li><a href="#"><span>My Bookmarks</span></a></li>
+						</ul>
 					</div>
 				</div>
-			</div>
-		</div><!--/#twitter-feed-->
-		
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="widget">
-							<h1 class="section-title title">About Us</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							<address>
-								<p>Address : 123 Gegrit, London, England</p>
-								<p>Call : +1234-222-3333</p>
-								<p>Email: <a href="#">info@newspress.com</a></p>
-							</address>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="widget">
-							<h1 class="section-title title">Flickr Gallery</h1>
-							<ul>
-								<li><a href="images/post/flicker/1.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/1.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/2.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/2.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/3.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/3.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/4.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/4.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/5.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/5.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/6.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/6.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/7.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/7.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/8.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/8.jpg" alt="" /></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="widget news-letter">
-							<h1 class="section-title title">Weekly NewsLetter</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-							
-							<form action="#" method="post" id="subscribe-form" name="subscribe-form">
-								<input type="text" placeholder="Your E-mail" name="email">
-								<button type="submit" name="subscribe" id="subscribe" >Subscribe</button>
-							</form>
-						</div>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>For Employers</h3>
+						<ul>
+							<li><a href="#"><span>Browse Candidates</span></a></li>
+							<li><a href="#"><span>Post a Job</span></a></li>
+							<li><a href="#"><span>Post a Task</span></a></li>
+							<li><a href="#"><span>Plans & Pricing</span></a></li>
+						</ul>
 					</div>
 				</div>
-			</div>
-		</div><!--/.footer-widget-->
-	
-		<footer id="footer">
-			<div class="footer-top">
-				<div class="container text-center">
-					<div class="logo-icon"><img class="img-responsive" src="images/presets/preset1/logo-icon.png" alt="" /></div>
-				</div>
-			</div>
-			<div class="footer-menu">
-				<div class="container">
-					<ul class="nav navbar-nav">                       
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Products</a></li>
-						<li><a href="#">Career</a></li>
-						<li><a href="#">Advertisement</a></li>
-						<li><a href="#">Team</a></li>
-						<li><a href="#">Contact Us</a></li>
-					</ul> 
-				</div>
-			</div>
-			<div class="bottom-widgets">
-				<div class="container">
-					<div class="col-sm-4">
-						<div class="widget">
-							<h2>Category</h2> 
-							<ul>
-								<li><a href="#">Business</a></li>
-								<li><a href="#">Politics</a></li>
-								<li><a href="#">Sports</a></li>
-								<li><a href="#">World</a></li>
-								<li><a href="#">Technology</a></li>
-							</ul>
-							<ul>
-								<li><a href="#">Environment</a></li>
-								<li><a href="#">Health</a></li>
-								<li><a href="#">Entertainment</a></li>
-								<li><a href="#">Lifestyle</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="widget">
-							<h2>Editions</h2> 
-							<ul>
-								<li><a href="#">United States</a></li>
-								<li><a href="#">China</a></li>
-								<li><a href="#">India</a></li>
-								<li><a href="#">Maxico</a></li>
-								<li><a href="#">Middle East</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="widget">
-							<h2>Tag</h2> 
-							<ul>
-								<li><a href="#">Gallery</a></li>
-								<li><a href="#">Sports</a></li>
-								<li><a href="#">Featured</a></li>
-								<li><a href="#">World</a></li>
-								<li><a href="#">Fashion</a></li>
-							</ul>
-							<ul>
-								<li><a href="#">Environment</a></li>
-								<li><a href="#">Health</a></li>
-								<li><a href="#">Entertainment</a></li>
-								<li><a href="#">Lifestyle</a></li>
-								<li><a href="#">Business</a></li>
-							</ul>
-							<ul>
-								<li><a href="#">Tech</a></li>
-								<li><a href="#">Movie</a></li>
-								<li><a href="#">Music</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-2">
-						<div class="widget">
-							<h2>Products</h2> 
-							<ul>
-								<li><a href="#">Ebook</a></li>
-								<li><a href="#">Baby Product</a></li>
-								<li><a href="#">Magazine</a></li>
-								<li><a href="#">Sports Elements</a></li>							
-								<li><a href="#">Technology</a></li>
-							</ul>
-						</div>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>Helpful Links</h3>
+						<ul>
+							<li><a href="#"><span>Contact</span></a></li>
+							<li><a href="#"><span>Privacy Policy</span></a></li>
+							<li><a href="#"><span>Terms of Use</span></a></li>
+						</ul>
 					</div>
 				</div>
-			</div>
-			<div class="footer-bottom">
-				<div class="container text-center">
-					<p><a href="#">Move Klang </a>&copy; 2020 </p>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>Account</h3>
+						<ul>
+							<li><a href="#"><span>Log In</span></a></li>
+							<li><a href="#"><span>My Account</span></a></li>
+						</ul>
+					</div>
 				</div>
-			</div>		
-		</footer>	
-	</div><!--/#main-wrapper--> 
-	
-	
-	<!--<div class="subscribe-me text-center">
-		<h1>Don’t Miss The Hottest News</h1>
-		<h2>Subscribe our Newsletter</h2>
-		<a href="#close" class="sb-close-btn"><img class="<img-responsive></img-responsive>" src="images/others/close-button.png" alt="" /></a>
-		<form action="#" method="post" id="popup-subscribe-form" name="subscribe-form">			
-			<div class="input-group">
-				<span class="input-group-addon"><img src="images/others/icon-message.png" alt="" /></span>
-				<input type="text" placeholder="Enter your email" name="email">
-				<button type="submit" name="subscribe">Go</button>
+
+				<!-- Newsletter -->
+				<div class="col-xl-4 col-lg-4 col-md-12">
+					<h3><i class="icon-feather-mail"></i> Sign Up For a Newsletter</h3>
+					<p>Weekly breaking news, analysis and cutting edge advices on job searching.</p>
+					<form action="#" method="get" class="newsletter">
+						<input type="text" name="fname" placeholder="Enter your email address">
+						<button type="submit"><i class="icon-feather-arrow-right"></i></button>
+					</form>
+				</div>
 			</div>
-		</form>
-	</div>/.subscribe-me--> 
+		</div>
+	</div>
+	<!-- Footer Middle Section / End -->
 	
-		
-	
-	<!--/Preset Style Chooser--> 
-	
-	<!--/End:Preset Style Chooser-->
-		
-	<!--/#scripts--> 
-    <script type="text/javascript" src="{{ asset('public/assets/js/jquery.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('public/assets/js/bootstrap.min.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('public/assets/js/jquery.magnific-popup.min.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('public/assets/js/owl.carousel.min.js')}}"></script> 
-	<script type="text/javascript" src="{{ asset('public/assets/js/moment.min.js')}}"></script> 
-	<script type="text/javascript" src="{{ asset('public/assets/js/jquery.simpleWeather.min.js')}}"></script> 
-	<script type="text/javascript" src="{{ asset('public/assets/js/jquery.sticky-kit.min.js')}}"></script>
-	<script type="text/javascript" src="{{ asset('public/assets/js/jquery.easy-ticker.min.js')}}"></script> 
-	<script type="text/javascript" src="{{ asset('public/assets/js/jquery.subscribe-better.min.js')}}"></script> 
-    <script type="text/javascript" src="{{ asset('public/assets/js/main.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('public/assets/js/switcher.js')}}"></script>
-<script>
-    var lastScrollTop = 0;
-$(window).scroll(function(event){
-   var st = $(this).scrollTop();
-   if (st > 120){
-       $(".navbar-brand").addClass('small-logo');
-   } else if(st < 120){
-    $(".navbar-brand").removeClass('small-logo');
-   }
-});
-</script>
+	<!-- Footer Copyrights -->
+	<div class="footer-bottom-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					© 2018 <strong>Hireo</strong>. All Rights Reserved.
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Copyrights / End -->
+
+</div>
+<!-- Footer / End -->
+
+</div>
+<!-- Wrapper / End -->
+
+
+<!-- Scripts
+================================================== -->
+<script src="{{ asset('public/assets/js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/jquery-migrate-3.0.0.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/mmenu.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/tippy.all.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/simplebar.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/bootstrap-slider.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/bootstrap-select.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/snackbar.js')}}"></script>
+<script src="{{ asset('public/assets/js/clipboard.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/counterup.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/magnific-popup.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/slick.min.js')}}"></script>
+<script src="{{ asset('public/assets/js/custom.js')}}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+
+@stack('js')
 </body>
 </html>

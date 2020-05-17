@@ -1,17 +1,27 @@
-@extends('layouts.app')
+@extends('frontend.layouts.master')
 
 @section('content')
+<div class="margin-top-70"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+
+
+
+ <div id="test1" class="dashboard-box">
+
+                        <!-- Headline -->
+                        <div class="headline">
+                            <h3><i class="icon-material-outline-lock"></i> {{ __('Reset Password') }}</h3>
                         </div>
+
+                        <div class="content with-padding">
+                            @if (session('status'))
+                            <div class="notification success closeable">
+                                <p>{{ session('status') }}</p>
+                                <a class="close"></a>
+                            </div>
                     @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
@@ -33,15 +43,16 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button full-width button-sliding-icon ripple-effect margin-top-10">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
+                        </div>
+                    </div>
         </div>
     </div>
 </div>
+<div class="margin-top-70"></div>
 @endsection

@@ -67,25 +67,14 @@
                 <li @if(Request::segment(2) =='dashboard') class="mm-active" @endif>
                 <a href="{{url('admin/dashboard')}}"><i class="ti-bar-chart"></i><span>Dashboard</span></a>
                 </li>
-                <li @if(Request::segment(2) =='sliders') class="mm-active" @endif>
-                    <a href="{{route('sliders')}}"><i class="ti-image"></i><span>Home Sliders</span></a> 
-                </li>
+                
                 <li @if(Request::segment(2) =='categories') class="mm-active" @endif>
                     <a href="{{route('news.categories')}}"><i class="ti-layers"></i><span>Manage Categories</span></a> 
                 </li>
-                <li @if(Request::segment(2) =='locations') class="mm-active" @endif>
-                <a href="{{route('locations')}}"><i class="ti-location-pin" ></i><span>Manage Locations</span></a> 
+                <li @if(Request::segment(2) =='services') class="mm-active" @endif>
+                    <a href="{{route('list.services')}}"><i class="ti-layers"></i><span>Manage Services</span></a> 
                 </li>
-                <li @if(Request::segment(2) =='businessnature') class="mm-active" @endif>
-                    <a href="{{route('businessnature')}}"><i class="ti-location-pin" ></i><span>Business Types</span></a> 
-                    </li>
-                <li @if(Request::segment(2) =='companies') class="mm-active" @endif>
-                    <a href="javascript: void(0);"><i class="ti-bag"></i>Companies <span class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                    <li><a href="{{route('companies.add')}}">Add New Company</a></li>                                    
-                    <li><a href="{{route('companies.list')}}">Company List</a></li>                               
-                    </ul>
-                </li>
+              
             </ul>
         </div>
         <!-- end left-sidenav-->

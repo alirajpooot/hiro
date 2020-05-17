@@ -25,7 +25,7 @@
                 {{ csrf_field()}}
             <input type="hidden" name="id" value="{{$catd->id}}">
                 <div class="form-group col-lg-12">
-                    <div class="col-md-6">
+                    <!-- <div class="col-md-6">
                         <label class="mb-3">Single select</label>
                         <select name="parentcat" id="select2" class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;">
                             <option value="0">Select</option>
@@ -36,7 +36,7 @@
                             @endforelse
 
                         </select>
-                    </div> <br>
+                    </div> --> <br>
                     <div class="col-md-6">
                         <label for="exampleInputEmail1">Category Name</label>
                     <input type="text" class="form-control" name="category" value="{{$catd->name}}" placeholder="Enter Category Name">

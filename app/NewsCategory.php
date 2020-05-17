@@ -16,4 +16,9 @@ class NewsCategory extends Model
         $gcn = NewsCategory::where('id', $id)->first();
         return $gcn->name;
     }
+
+    public function getServices()
+    {
+        return $this->hasMany(Service::Class, 'cat_id', 'id');
+    }
 }

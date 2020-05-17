@@ -8,9 +8,7 @@ use Auth;
 use App\NewsCategory;
 use Validator;
 use Image;
-use App\Location;
-use App\Slider;
-use App\BusinessNature;
+use App\Service;
 
 class HomeController extends Controller
 {
@@ -55,7 +53,8 @@ class HomeController extends Controller
         $cat = new NewsCategory;
         $cat->name = $req->category;
         $cat->slug = str_replace(' ','-',$req->category);
-        $cat->parent_id = $req->parentcat;
+        $cat->parent_id = 0;
+        $cat->icon = $req->icon;
         if($req->hasFile('catimg'))
     	{
     		$file = $req->catimg;
@@ -97,6 +96,7 @@ class HomeController extends Controller
         $cat->name = $req->category;
         $cat->slug = str_replace(' ','-',$req->category);
         $cat->parent_id = $req->parentcat;
+        $cat->icon = $req->icon;
         if($req->hasFile('catimg'))
     	{
             if(!empty($cat->logo)){
@@ -131,164 +131,66 @@ class HomeController extends Controller
         return redirect()->back()->with('successmsg', 'Category has beed deleted successfully');
     }
 
-
-    // locations
-    public function Locations()
+        public function Services()
     {
-        $locs = Location::where('parent_id', '0')->get();
-        return view('admin.pages.location.location',['locs' => $locs]);
+        $services = Service::get();
+         $cats = NewsCategory::where('parent_id', '0')->get();
+        return view('admin.pages.services.services',['cats' => $cats, 'services'=>$services]);
     }
 
-    public function addLocation(Request $req)
+    public function addServicePost(Request $req)
     {
         $attributes = [
-            'location' => 'Location',
-            'parentloc' => 'Parent Location'
+            'servicename' => 'Service Name',
+            'parentcat' => 'Parent Category'
         ];
-        $validator = Validator::make($req->only(['location']) ,[
-            'location' => 'required|unique:locations,name'
+        $validator = Validator::make($req->all() ,[
+            'servicename' => 'required|unique:services,name',
+            'parentcat' => 'required'
         ])->setAttributeNames($attributes);
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
-        $loc = new Location;
-        $loc->name = $req->location;
-        $loc->slug = str_replace(' ','-',$req->location);
-        $loc->parent_id = $req->parentloc;
-        if($loc->save()){
-            return redirect()->back()->with('successmsg', 'Location has beed addes successfully');
+        $service = new Service;
+        $service->cat_id = $req->parentcat;
+        $service->name = $req->servicename;
+        if($service->save()){
+            return redirect()->back()->with('successmsg', 'Service has beed addes successfully');
         }
     }
 
-    public function editLoc($id = '')
+    public function editServices($id = '')
     {
-        $locs = Location::where('parent_id', '0')->get();
-        $locd = Location::find($id);
-        return view('admin.pages.location.editlocation',['locd' => $locd, 'locs' => $locs]);
+        $cats = NewsCategory::where('parent_id', '0')->get();
+        $serviced = Service::find($id);
+        return view('admin.pages.services.editservice',['serviced' => $serviced, 'cats' => $cats]);
     }
 
-    public function editLocPost(Request $req)
-    { 
+    public function editServicePost(Request $req)
+    {
         $attributes = [
-            'location' => 'Location',
-            'parentloc' => 'Parent Location'
+            'servicename' => 'Service Name',
+            'parentcat' => 'Parent Category'
         ];
-        $validator = Validator::make($req->only(['location']) ,[
-            'location' => 'required'
+        $validator = Validator::make($req->all() ,[
+            'servicename' => 'required',
+            'parentcat' => 'required'
         ])->setAttributeNames($attributes);
         if($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
         }
-        $loc = Location::find($req->id);
-        $loc->name = $req->location;
-        $loc->slug = str_replace(' ','-',$req->location);
-        $loc->parent_id = $req->parentloc;
-        if($loc->save()){
-            return redirect()->back()->with('successmsg', 'Location has beed Updated successfully');
+        $service = Service::find($req->id);
+        $service->cat_id = $req->parentcat;
+        $service->name = $req->servicename;
+        if($service->save()){
+            return redirect()->back()->with('successmsg', 'Service has beed addes successfully');
         }
     }
 
-    public function deleteLocPost($id = 0)
+    public function deleteService($id='')
     {
-        $data =  Location::find($id);      
-        $del = Location::where('id', $id)->delete();
-        return redirect()->back()->with('successmsg', 'Location has beed deleted successfully');
+        $del = Service::where('id', $id)->delete();
+        return redirect()->back()->with('successmsg', 'Service has beed deleted successfully');
     }
-
-    public function Sliders()
-    {
-        $sliders = Slider::get();
-        return view('admin.pages.slider.sliders', ['sliders' => $sliders]);
-    }
-
-    public function SlidersPost(Request $req)
-    {
-        if($req->hasFile('sliderimage'))
-    	{
-    		$file = $req->sliderimage;
-    		$ext = $req->file('sliderimage')->getClientOriginalExtension();
-            if($ext == 'jpg' or $ext == 'png' or $ext == 'jpeg')
-            {
-            	$newname = Auth::user()->id.date("His").'.'.$ext;
-                $image = Image::make($file);
-                $image->save('public/assets/images/sliders/'.$newname, 60);
-                
-                $slider = new Slider;
-                $slider->image = $newname;
-                $slider->sort = $req->sort;
-                if($slider->save()){
-                    return redirect()->back()->with('successmsg', 'Slider has beed added successfully');
-                }
- 
-            }
-    	} return redirect()->back();
-    }
-
-    public function SliderDel($id = '')
-    {
-        if(!empty($id)){
-            $gets = Slider::find($id);
-            if(!empty($gets->image)){
-                $file_path = base_path().'/public/assets/images/sliders/'.$gets->image;
-                if(file_exists($file_path)) {unlink($file_path);}
-                 }
-            $dels = Slider::where('id', $id)->delete();
-            return redirect()->back()->with('successmsg', 'Slider has beed Deleted successfully');
-        }
-        return redirect()->back();
-    }
-
-    public function SliderSort(Request $req)
-    {
-        if(!empty($req->id) and !empty($req->sort)){
-            $gets = Slider::find($req->id);
-            $gets->sort = $req->sort;
-            if($gets->save()){echo 'successmsg', 'Slider has beed Updated successfully';}
-        } else {
-        return redirect()->back();
-        }
-    }
-
-    public function businessNature()
-    {
-        $btypes = businessNature::get(); 
-        return view('admin.pages.businessnature.businessnature', ['types' => $btypes]);
-    }
-
-    public function businessNatureAdd(Request $req)
-    {
-        $attributes = [
-            'type' => 'Type',
-        ];
-        $validator = Validator::make($req->only(['type']) ,[
-            'type' => 'required|unique:business_natures,name'
-        ])->setAttributeNames($attributes);
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        $type = new BusinessNature;
-        $type->name = $req->type;
-        if($type->save()){
-            return redirect()->back()->with('successmsg', 'Business Type has beed addes successfully');
-        }
-    }
-
-    public function businessNatureDelete($id = '')
-    {
-        if(empty($id)){return redirect()->back();}
-            $dels = BusinessNature::where('id', $id)->delete();
-            return redirect()->back()->with('successmsg', 'Business Type has beed Deleted successfully');        
-    }
-
-    public function businessNatureEdit(Request $req)
-    {
-        $te = BusinessNature::find($req->id);
-        $te->name = $req->type;
-        if($te->save()){
-            echo '<div class="alert alert-success">Type Updated Successfully</div>';
-        }
-    }
-
+   
 }

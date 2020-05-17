@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Slider;
 use App\Company;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
 
     /**
@@ -23,26 +24,32 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    
     public function index()
     {
-        $sliders = Slider::orderBy('sort')->get();
-        return view('frontend.pages.homepage',['sliders' => $sliders]);
+        return view('home');
     }
 
-    public function login()
+    public function logout()
     {
-        return 'kk';
+        if(Auth::check()){
+            Auth::logout();
+            return redirect()->route('home');
+        }
     }
 
-    public function CompaniesByAlphabet($alpah = '')
+    public function Services()
     {
-        if(empty($alpah))
-        {
-            $allcomps = Company::where('status', 1)->get();
-        }
-        else{
-            $allcomps  = Company::where('company_name', 'like', $alpah.'%')->where('status', 1)->get();
-        }
-        return view('frontend.pages.companies',['allcomps' => $allcomps]);
+        return view('frontend.pages.userdash.services');
+    }
+
+    public function Links()
+    {
+        return view('frontend.pages.userdash.links');
+    }
+
+    public function Password()
+    {
+        return view('frontend.pages.userdash.changepassword');
     }
 }

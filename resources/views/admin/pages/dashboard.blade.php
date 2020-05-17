@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 @section('description', 'Welcome to Admin Control Panel')
-@section('title', 'Move Klang Admin Panel')
+@section('title', 'Hiro Admin Panel')
 @push('css')
 <link href="{{ asset('public/admin/plugins/jvectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet">
 

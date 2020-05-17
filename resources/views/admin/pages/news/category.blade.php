@@ -24,7 +24,7 @@
             <form method="post" action="{{ route('news.add.cat') }}" enctype="multipart/form-data">
                 {{ csrf_field()}}
                 <div class="col-md-6">
-                <div class="form-group col-lg-12">
+               <!--  <div class="form-group col-lg-12">
                         <label class="mb-3">Single select</label>
                         <select name="parentcat" class="select2 form-control mb-3 custom-select" style="width: 100%; height:36px;">
                             <option value="0">Select</option>
@@ -34,7 +34,7 @@
                             @endforelse
 
                         </select>
-                    </div> 
+                    </div>  -->
                 </div>
                     <div class="col-md-6">
                         <div class="form-group col-lg-12">
@@ -51,6 +51,15 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                        <div class="form-group col-lg-12">
+                    <div class="custom-file mb-3">
+                        <label class="icon" for="customFile">Choose Icon</label>
+                        <input type="text" class="form-control" name="icon">
+                        
+                    </div>
+                </div>
+            </div>
                 <button type="submit" class="btn btn-gradient-primary">Submit</button>
             </form>                                           
             </div><!--end card-body-->
@@ -63,7 +72,7 @@
             <div class="card-body">
                 @if(!empty($cat->logo)) <img class="float-left" width="48px" src="{{url('public/assets/catimages')}}/{{$cat->logo}}"> @endif 
             <div class="float-left col-md-8">
-                <h4 class="mt-0 header-title"><a class="btn btn-danger btn-block" data-toggle="collapse" href="#collapse{{$key}}" role="button" aria-expanded="false" aria-controls="collapse{{$key}}">{{$cat->name}}</a></h4></div>
+                <h4 class="mt-0 header-title"><a class="btn btn-default btn-block" data-toggle="collapse" href="#collapse{{$key}}" role="button" aria-expanded="false" aria-controls="collapse{{$key}}">{{$cat->name}}</a></h4></div>
                 
             <div class="float-right"><a href="{{route('edit.news.categories', [$cat->id])}}"><i class="mdi mdi-pencil-outline"></i></a> <a onclick="return confirm('Are you sure to delete? It will delete sub categories as well')" href="{{route('delete.news.categories', [$cat->id])}}"><i class="mdi mdi-trash-can-outline"></i></a>
                 

@@ -20,13 +20,3 @@
 <!-- App js -->
 <script src="{{ asset('public/admin/assets/js/app.js')}}"></script>
 
-<script> 
-$("input#sort").bind('change', function(){
-    var csrf = $('meta[name="_token"]').attr('content');
-    var id = $(this).attr('data');
-    var sort = $(this).val();
-    $.post("{{ route('slidersort')}}", {_token:csrf,id:id,sort:sort}, function(data){
-        console.log(data);
-    });
-})
-</script>
