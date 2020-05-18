@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Slider;
 use App\Company;
 use Auth;
+use App\UserDetail;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,9 @@ class HomeController extends Controller
     
     public function index()
     {
-        return view('home');
+        // dd("Aa");
+        $userDetail = UserDetail::where('user_id',Auth::user()->id)->first();
+        return view('home',compact('userDetail'));
     }
 
     public function logout()
@@ -45,7 +48,8 @@ class HomeController extends Controller
 
     public function Links()
     {
-        return view('frontend.pages.userdash.links');
+        $userDetail = UserDetail::where('user_id',Auth::user()->id)->first();
+        return view('frontend.pages.userdash.links',compact('userDetail'));
     }
 
     public function Password()

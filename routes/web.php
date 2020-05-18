@@ -22,11 +22,14 @@ Route::get('/home/services', ['uses' => 'HomeController@Services', 'as' => 'home
 Route::get('/home/links', ['uses' => 'HomeController@Links', 'as' => 'home.links']);
 Route::get('/home/password', ['uses' => 'HomeController@Password', 'as' => 'home.password']);
 
+
 //frontend non auth routes
 Route::get('/', ['uses' => 'MainController@index', 'as' => 'main.page']);
 
-
-
+//update user profile
+Route::post('home/user/profile','ProfileController@userProfileUpdate')->name('user.profile');
+Route::post('/home/password/change','ProfileController@changePassword')->name( 'password.change');
+Route::post('/home/social/link','ProfileController@socialLink')->name( 'social.link');
 
 
 
